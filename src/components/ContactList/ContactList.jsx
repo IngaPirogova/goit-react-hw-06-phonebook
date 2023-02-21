@@ -8,22 +8,19 @@ export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
 
-  const searchContacts = contacts.filter(el =>
-    el.name.toLowerCase().includes(filter.toLowerCase())
+  const searchContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
   );
-    
-
 
   return (
     <>
-    <ul className={css.contactList}>
-      {searchContacts.map(({ name, number, id }) => {
-        return (
-          <ContactItem key={nanoid()} name={name} number={number} id={id} />
-        );
-      })}
-    </ul>
+      <ul className={css.contactList}>
+        {searchContacts.map(({ name, number, id }) => {
+          return (
+            <ContactItem key={nanoid()} name={name} number={number} id={id} />
+          );
+        })}
+      </ul>
     </>
   );
 };
-

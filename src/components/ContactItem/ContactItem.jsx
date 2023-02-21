@@ -3,7 +3,7 @@ import css from './ContactItem.module.css';
 import { deleteContact } from 'redux/slice';
 
 export const ContactItem = ({ name, number, id }) => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   return (
     <>
       <li className={css.contactItem}>

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import css from './ContactForm.module.css';
 import { nanoid } from '@reduxjs/toolkit';
-import { addContact, getContacts } from 'redux/slice';
 import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/contactsSlice';
+import { getContacts } from 'redux/selectors';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -87,34 +88,3 @@ export const ContactForm = () => {
   );
 };
 
-// export function ContactForm({ onSubmit }) {
-//   const [name, setName] = useState('');
-//   const [number, setNumber] = useState('');
-
-//   const handleInput = event => {
-//     console.log(event.target.name);
-
-//     switch (event.target.name) {
-//       case 'name':
-//         setName(event.target.value);
-//         break;
-
-//       case 'number':
-//         setNumber(event.target.value);
-//         break;
-
-//       default:
-//         return;
-//     }
-//   };
-
-// const handleSubmit = event => {
-//   event.preventDefault();
-//   onSubmit({name, number});
-//   reset();
-// };
-
-// const reset = () => {
-//   setName('');
-//   setNumber('');
-// };

@@ -9,14 +9,14 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist'
+} from 'redux-persist';
 
 export const store = configureStore({
-    reducer: {
-        contacts: contactsReducer,
-        filter: filterReducer,
-    },
-    middleware: (getDefaultMiddleware) =>
+  reducer: {
+    contacts: contactsReducer,
+    filter: filterReducer,
+  },
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

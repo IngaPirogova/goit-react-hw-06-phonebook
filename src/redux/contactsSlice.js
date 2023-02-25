@@ -4,15 +4,19 @@ import storage from 'redux-persist/lib/storage';
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: { contacts:[]},
+  initialState: { contacts: [] },
   reducers: {
     addContact(state, action) {
-          state.contacts.push(action.payload)
-      },
-      deleteContact(state, action) {
-        return {contacts: state.contacts.filter(contact => contact.id !== action.payload) }
-      }
-  }
+      state.contacts.push(action.payload);
+    },
+    deleteContact(state, action) {
+      return {
+        contacts: state.contacts.filter(
+          contact => contact.id !== action.payload
+        ),
+      };
+    },
+  },
 });
 
 const persistConfig = {
@@ -21,10 +25,7 @@ const persistConfig = {
 };
 
 export const { addContact, deleteContact } = contactsSlice.actions;
-export const contactsReducer = persistReducer(persistConfig, contactsSlice.reducer);
-
-
-
-
-  
-
+export const contactsReducer = persistReducer(
+  persistConfig,
+  contactsSlice.reducer
+);
